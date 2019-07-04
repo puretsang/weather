@@ -16,12 +16,29 @@ class CityFragment : Fragment(), WeatherContract.View {
         rootView!!.tvName.text = "====== 正在加载 ====="
     }
 
-    override fun showLoadingSuccessView(data: WeatherData) {
-        rootView!!.tvName.text = data.description
+    override fun showLoadingSuccessView(data: WeatherData?) {
+        if (data != null) {
+            val description = "注意事项：${data.description}"
+            rootView!!.tvName.text = description
+            val curData = data.list[0]
+            rootView!!.tvDate.text = curData.date
+            rootView!!.tvHigh.text = curData.high
+            rootView!!.tvLow.text = curData.low
+            rootView!!.tvPower.text = curData.fengli
+            rootView!!.tvirection.text = curData.fengxiang
+            val cur =  data.wendu.toString()+"°C"
+
+            rootView!!.tvCur.text  = cur
+
+        } else {
+            rootView!!.tvName.text = "====== 数据错误 ====="
+        }
+
     }
 
     override fun showLoadingErrorView() {
         rootView!!.tvName.text = "====== 加载失败 ====="
+
     }
 
     private var rootView: View? = null
@@ -29,7 +46,7 @@ class CityFragment : Fragment(), WeatherContract.View {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        if (rootView == null) {
+        if (rootView == null) {//避免重复加载
             presenter = WeatherPresenter()
             presenter!!.attachView(this)
             rootView = inflater.inflate(R.layout.fragment_city, container, false)

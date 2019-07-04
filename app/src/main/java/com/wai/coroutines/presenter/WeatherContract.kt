@@ -8,7 +8,7 @@ class WeatherContract {
 
     interface View: MvpView {
         fun showLoadingView()
-        fun showLoadingSuccessView(data: WeatherData)
+        fun showLoadingSuccessView(data: WeatherData?)
         fun showLoadingErrorView()
     }
 
