@@ -7,7 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.wai.coroutines"
+        applicationId "com.wai.w1"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
@@ -25,6 +25,48 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    flavorDimensions "custom_flag"
+    def code = 100
+    def vname = "1.0.0"
+
+    productFlavors {
+        flag_w1 {
+            dimension "custom_flag"
+            applicationId "com.wai.w1"
+            versionCode code
+            versionName vname
+        }
+
+        flag_w2 {
+            dimension "custom_flag"
+            applicationId "com.wai.w2"
+            versionCode code
+            versionName vname
+        }
+
+        flag_w3 {
+            dimension "custom_flag"
+            applicationId "com.wai.w2"
+            versionCode code
+            versionName vname
+        }
+
+        flag_w4 {
+            dimension "custom_flag"
+            applicationId "com.wai.w2"
+            versionCode code
+            versionName vname
+        }
+
+        flag_w5 {
+            dimension "custom_flag"
+            applicationId "com.wai.w2"
+            versionCode code
+            versionName vname
+        }
+    }
+
 }
 
 dependencies {
