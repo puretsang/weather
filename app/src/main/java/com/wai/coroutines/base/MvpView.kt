@@ -1,3 +1,10 @@
 package com.wai.coroutines.base
 
-interface MvpView
+interface MvpView{
+
+
+    fun showLoadingView()
+
+
+    fun showLoadingErrorView()
+}

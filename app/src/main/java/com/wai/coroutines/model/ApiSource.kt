@@ -25,7 +25,7 @@ interface ApiService {
 
 
     @GET("satinApi")
-    fun getSatinData(@Query("type") type: Int, @Query("page") page: Int): Call<MutableList<SatinBean>>
+    fun getSatinData(@Query("type") type: Int, @Query("page") page: Int): Call<BaseData<MutableList<SatinBean>>>
 
 
 }
