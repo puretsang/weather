@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.wai.coroutines.R
 import com.wai.coroutines.pojo.SatinBean
 import kotlinx.android.synthetic.main.item.view.*
@@ -32,7 +33,7 @@ class RecyclerAdapter(private val list: MutableList<SatinBean>) : RecyclerView.A
 
         fun bindData(bean: SatinBean) {
             itemView.tvTitle.text = bean.name
-            Glide.with(itemView).load(bean.image).into(itemView.imageView)
+            Glide.with(itemView).load(bean.image).diskCacheStrategy(DiskCacheStrategy.ALL).into(itemView.imageView)
             itemView.tvCollection.text = bean.favourite.toString()
             itemView.tvLike.text = bean.love.toString()
             itemView.tvComment.text = bean.comment.toString()
