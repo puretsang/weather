@@ -1,7 +1,6 @@
 # * 使用`Kotlin Coroutine(协程)`和`Retrofit`建立`Demo`， *
 
 
-
 本App一共2个界面
 
 界面1：
